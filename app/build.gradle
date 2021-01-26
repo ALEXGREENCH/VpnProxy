@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion compile_version
@@ -9,7 +9,7 @@ android {
         applicationId "fun.siemens_mobile.proxy_app"
         minSdkVersion 21
         //noinspection OldTargetApi
-        targetSdkVersion 27
+        targetSdkVersion 30
         versionCode 1
         versionName "0.1"
     }
@@ -21,14 +21,14 @@ android {
     }
 }
 dependencies {
-    implementation "com.android.support:appcompat-v7:$support_version"
-    implementation "com.android.support:cardview-v7:$support_version"
-    testImplementation "junit:junit:$junit_version"
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation "junit:junit:4.13.1"
     //noinspection GradleDependency
-    implementation 'com.squareup.okhttp3:okhttp:3.9.0'
-    implementation 'net.ripe.commons:commons-ip-math:1.22'
-    implementation "com.android.support:design:${support_version}"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
+    implementation 'net.ripe.commons:commons-ip-math:1.23'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.21"
 }
 repositories {
     mavenCentral()

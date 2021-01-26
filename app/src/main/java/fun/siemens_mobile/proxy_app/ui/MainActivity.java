@@ -7,13 +7,6 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.annotation.NonNull;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SwitchCompat;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,6 +15,14 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements
     private RecyclerView.Adapter mAdapter;
     private RecyclerView recyclerView;
 
-    private int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 32;
+    private final int MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE = 32;
 
     private void updateTilte() {
         ActionBar actionBar = getSupportActionBar();
@@ -108,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements
                 // app-defined int constant that should be quite unique
 
                 return;
-            }else {
+            } else {
                 testReadText();
             }
         }
@@ -136,12 +137,12 @@ public class MainActivity extends AppCompatActivity implements
         Log.d("TAG", "AbsolutePath : " + sdcard.getAbsolutePath());
 
 
-        for (File c : sdcard.listFiles()){
+        for (File c : sdcard.listFiles()) {
             Log.d("TAG", "child : " + c.getName());
 
         }
 
-        File fileHttp = new File(sdcard,"http.txt");
+        File fileHttp = new File(sdcard, "http.txt");
         try {
             BufferedReader br = new BufferedReader(new FileReader(fileHttp));
 
@@ -153,7 +154,7 @@ public class MainActivity extends AppCompatActivity implements
                 String[] values = line.split(",");
                 StringBuilder name = new StringBuilder();
                 String tempLast = "";
-                for (String s : values){
+                for (String s : values) {
                     name.append(s).append(" ");
                     tempLast = s;
                 }
@@ -170,12 +171,11 @@ public class MainActivity extends AppCompatActivity implements
                 proxyItemArrayList.add(p);
             }
             br.close();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             //You'll need to add proper error handling here
         }
 
-        File fileHttps = new File(sdcard,"https.txt");
+        File fileHttps = new File(sdcard, "https.txt");
         try {
             BufferedReader br = new BufferedReader(new FileReader(fileHttps));
             String line;
@@ -185,7 +185,7 @@ public class MainActivity extends AppCompatActivity implements
                 String[] values = line.split(",");
                 StringBuilder name = new StringBuilder();
                 String tempLast = "";
-                for (String s : values){
+                for (String s : values) {
                     name.append(s).append(" ");
                     tempLast = s;
                 }
@@ -202,8 +202,7 @@ public class MainActivity extends AppCompatActivity implements
                 proxyItemArrayList.add(p);
             }
             br.close();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             //You'll need to add proper error handling here
         }
 

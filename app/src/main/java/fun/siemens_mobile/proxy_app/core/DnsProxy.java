@@ -28,7 +28,7 @@ public class DnsProxy implements Runnable {
     private DatagramSocket m_Client;
     private Thread m_ReceivedThread;
     private short m_QueryID;
-    private SparseArray<QueryState> m_QueryArray;
+    private final SparseArray<QueryState> m_QueryArray;
 
     public DnsProxy() throws IOException {
         m_QueryArray = new SparseArray<QueryState>();

@@ -2,9 +2,7 @@ package fun.siemens_mobile.proxy_app.tunnel.httpconnect;
 
 import android.net.Uri;
 
-import java.io.IOException;
 import java.net.InetSocketAddress;
-import java.net.URL;
 
 import fun.siemens_mobile.proxy_app.tunnel.Config;
 

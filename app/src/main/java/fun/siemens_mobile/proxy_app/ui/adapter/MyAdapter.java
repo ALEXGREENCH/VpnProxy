@@ -1,12 +1,13 @@
 package fun.siemens_mobile.proxy_app.ui.adapter;
 
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
@@ -16,16 +17,8 @@ import fun.siemens_mobile.proxy_app.ui.model.ProxyItem;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
-    private ArrayList<ProxyItem> proxyItemArrayList;
+    private final ArrayList<ProxyItem> proxyItemArrayList;
     private TextView preview;
-
-    static class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView textView;
-        MyViewHolder(TextView v) {
-            super(v);
-            textView = v;
-        }
-    }
 
     public MyAdapter(ArrayList<ProxyItem> proxyItemArrayList) {
         this.proxyItemArrayList = proxyItemArrayList;
@@ -52,7 +45,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
                 Toast.makeText(holder.itemView.getContext(), "Выбрано " + LocalVpnService.SELECTED_URL, Toast.LENGTH_SHORT).show();
 
-                if (preview != null){
+                if (preview != null) {
                     preview.setSelected(false);
                 }
 
@@ -66,6 +59,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public int getItemCount() {
         return proxyItemArrayList.size();
+    }
+
+    static class MyViewHolder extends RecyclerView.ViewHolder {
+        TextView textView;
+
+        MyViewHolder(TextView v) {
+            super(v);
+            textView = v;
+        }
     }
 }
 

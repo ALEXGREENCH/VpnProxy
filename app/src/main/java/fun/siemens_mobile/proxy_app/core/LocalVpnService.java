@@ -41,7 +41,7 @@ public class LocalVpnService extends VpnService implements Runnable {
     public static boolean IsRunning = false;
     private static int ID;
     private static int LOCAL_IP;
-    private static ConcurrentHashMap<onStatusChangedListener, Object> m_OnStatusChangedListeners = new ConcurrentHashMap<onStatusChangedListener, Object>();
+    private static final ConcurrentHashMap<onStatusChangedListener, Object> m_OnStatusChangedListeners = new ConcurrentHashMap<onStatusChangedListener, Object>();
     private final String device = android.os.Build.DEVICE;
     private final String model = android.os.Build.MODEL;
     private final String version = "" + android.os.Build.VERSION.SDK_INT + " (" + android.os.Build.VERSION.RELEASE + ")";
@@ -51,12 +51,12 @@ public class LocalVpnService extends VpnService implements Runnable {
     private DnsProxy m_DnsProxy;
     private FileOutputStream m_VPNOutputStream;
 
-    private byte[] m_Packet;
-    private IPHeader m_IPHeader;
-    private TCPHeader m_TCPHeader;
-    private UDPHeader m_UDPHeader;
-    private ByteBuffer m_DNSBuffer;
-    private Handler m_Handler;
+    private final byte[] m_Packet;
+    private final IPHeader m_IPHeader;
+    private final TCPHeader m_TCPHeader;
+    private final UDPHeader m_UDPHeader;
+    private final ByteBuffer m_DNSBuffer;
+    private final Handler m_Handler;
     private long m_SentBytes;
     private long m_ReceivedBytes;
     private String[] m_Blacklist;
@@ -202,7 +202,6 @@ public class LocalVpnService extends VpnService implements Runnable {
         writeLog("Сеанс завершён ;)");
         dispose();
     }
-
 
 
     private void runVPN() throws Exception {
